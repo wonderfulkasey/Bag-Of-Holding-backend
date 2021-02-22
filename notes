@@ -1,0 +1,14 @@
+users NOT needed for this project
+
+(goal has multiple)
+
+Character  model
+has_many :bags
+    :name -- string
+
+
+Bag  model
+belongs_to :character
+    :character_id - integer, 
+    :title -- string,
+    :description -- string
