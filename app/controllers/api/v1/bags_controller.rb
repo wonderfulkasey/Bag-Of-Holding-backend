@@ -1,2 +1,2 @@
-class BagsController < ApplicationController
+class Api::V1::BagsController < ApplicationController
 end
