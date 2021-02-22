@@ -6,7 +6,12 @@ class Api::V1::CharactersController < ApplicationController
     end 
 
     def create
-        
+        @character = Character.new(character_params)
+        if @character.save
+            render json: @character 
+        else
+            render json: {error: 'Error creating character'}
+        end
     end
 
     def show
