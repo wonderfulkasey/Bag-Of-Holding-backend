@@ -15,11 +15,13 @@ class Api::V1::CharactersController < ApplicationController
     end
 
     def show
-
+        @character = Character.find(params[:id])
+        render json: @character
     end 
 
     def destroy
-
+        @character = Character.find(params[:id])
+        @character.destroy
     end 
 
 
