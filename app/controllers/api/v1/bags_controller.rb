@@ -8,17 +8,21 @@ class Api::V1::BagsController < ApplicationController
     end 
 
     def create
-       
+        @bag = @character.bags.new(bag_params)
+        if @bag.save
+            render json: @bag
+        else  
+            render json: {error: 'Error creating bag'}
+        end 
     end
 
     def show
-        
+        @bag = Bag.find(params[:id])
+        render json: @bag
     end 
 
     def destroy
-       
     end 
-
 
     private 
 
