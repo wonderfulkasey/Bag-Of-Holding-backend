@@ -6,7 +6,6 @@ Character  model
 has_many :bags
     :name -- string
 
-
 Bag  model
 belongs_to :character
     :character_id - integer, 
