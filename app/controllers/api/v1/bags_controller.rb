@@ -3,7 +3,8 @@ class Api::V1::BagsController < ApplicationController
     before_action :set_character
 
     def index
-       
+       @bags = @character.bags 
+       render json: @bags
     end 
 
     def create
