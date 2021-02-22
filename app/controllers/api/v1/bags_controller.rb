@@ -1,4 +1,6 @@
 class Api::V1::BagsController < ApplicationController
+     
+    before_action :set_character
 
     def index
        
@@ -18,6 +20,10 @@ class Api::V1::BagsController < ApplicationController
 
 
     private 
+
+    def set_character
+        @character = Character.find(params[:character_id])
+    end
 
     def bag_params
         params.require(:bag).permit(:character_id, :title, :description)
