@@ -3,8 +3,13 @@ class Api::V1::BagsController < ApplicationController
     before_action :set_character
 
     def index
-       @bags = @character.bags 
+       @bags = Bag.all
        render json: @bags
+    end 
+
+    def show
+        @bag = Bag.find(params[:id])
+        render json: @bag
     end 
 
     def create
@@ -15,11 +20,6 @@ class Api::V1::BagsController < ApplicationController
             render json: {error: 'Error creating bag'}
         end 
     end
-
-    def show
-        @bag = Bag.find(params[:id])
-        render json: @bag
-    end 
 
     def destroy
         @bag = Bag.find(params["id"])
