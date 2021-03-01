@@ -22,6 +22,12 @@ class Api::V1::BagsController < ApplicationController
     end 
 
     def destroy
+        @bag = Bag.find(params["id"])
+        @character = Character.find(@bag.character_id)
+        if @bag.destroy
+            render json: @character 
+        else  
+            render json: {error: 'Error deleting bag'}
     end 
 
     private 
