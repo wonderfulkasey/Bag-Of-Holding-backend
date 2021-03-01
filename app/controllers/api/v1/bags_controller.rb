@@ -10,7 +10,7 @@ class Api::V1::BagsController < ApplicationController
     def create
         @bag = @character.bags.new(bag_params)
         if @bag.save
-            render json: @bag
+            render json: @character
         else  
             render json: {error: 'Error creating bag'}
         end 
