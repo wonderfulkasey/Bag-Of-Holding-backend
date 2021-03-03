@@ -3,7 +3,7 @@ class Api::V1::BagsController < ApplicationController
     before_action :set_character
 
     def index
-       @bags = Bag.all
+       @bags = @character.bags
        render json: @bags
     end 
 
@@ -16,6 +16,7 @@ class Api::V1::BagsController < ApplicationController
         @bag = @character.bags.new(bag_params)
         if @bag.save
             render json: @character
+            
         else  
             render json: {error: 'Error creating bag'}
         end 
@@ -28,7 +29,8 @@ class Api::V1::BagsController < ApplicationController
             render json: @character 
         else  
             render json: {error: 'Error deleting bag'}
-    end 
+        end 
+     end 
 
     private 
 
