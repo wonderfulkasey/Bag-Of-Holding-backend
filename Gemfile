@@ -12,6 +12,8 @@ gem 'puma', '~> 5.0'
 
 gem 'rack-cors'
 
+gem 'devise'
+
 gem 'active_model_serializers'
 
 gem 'pry'
